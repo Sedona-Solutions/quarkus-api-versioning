@@ -66,6 +66,7 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
+    @Transactional
     public void deleteBeer(long id) {
         this.findById(id);
         beerRepository.deleteById(id);

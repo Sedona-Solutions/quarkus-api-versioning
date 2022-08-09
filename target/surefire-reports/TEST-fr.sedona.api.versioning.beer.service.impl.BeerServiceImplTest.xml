@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.044" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.042" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="FR"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809205114352_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T20-51-14_185-jvmRun1 surefire-20220809205114352_1tmp surefire_0-20220809205114352_2tmp"/>
+    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809212547063_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T21-25-46_898-jvmRun1 surefire-20220809212547063_1tmp surefire_0-20220809212547063_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.8.4/libexec"/>
     <property name="jdk.debug" value="release"/>
@@ -33,7 +33,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809205114352_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809212547063_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.2+8"/>
@@ -63,243 +63,14 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="17.0.2+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="e1:22:cd:80:39:9b:73:66"/>
+    <property name="io.netty.machineId" value="6e:57:13:a4:d0:79:aa:cf"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="searchByCreatorFirstNameAndLastName_should_return_expected_beers_with_first_and_last_name" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.015">
-    <system-out><![CDATA[Hibernate: 
-    select
-        beerentity0_.ID as id1_0_,
-        beerentity0_.ALCOHOL_LEVEL as alcohol_2_0_,
-        beerentity0_.BREWERY_ID as brewery_4_0_,
-        beerentity0_.CREATOR_ID as creator_5_0_,
-        beerentity0_.NAME as name3_0_ 
-    from
-        BEER beerentity0_ cross 
-    join
-        CREATOR creatorent1_ 
-    where
-        beerentity0_.CREATOR_ID=creatorent1_.ID 
-        and creatorent1_.FIRST_NAME=? 
-        and creatorent1_.LAST_NAME=?
-Hibernate: 
-    select
-        breweryent0_.ID as id1_2_0_,
-        breweryent0_.COUNTRY as country2_2_0_,
-        breweryent0_.NAME as name3_2_0_,
-        breweryent0_.TYPE as type4_2_0_,
-        beers1_.BREWERY_ID as brewery_4_0_1_,
-        beers1_.ID as id1_0_1_,
-        beers1_.ID as id1_0_2_,
-        beers1_.ALCOHOL_LEVEL as alcohol_2_0_2_,
-        beers1_.BREWERY_ID as brewery_4_0_2_,
-        beers1_.CREATOR_ID as creator_5_0_2_,
-        beers1_.NAME as name3_0_2_,
-        creatorent2_.ID as id1_3_3_,
-        creatorent2_.FIRST_NAME as first_na2_3_3_,
-        creatorent2_.LAST_NAME as last_nam3_3_3_ 
-    from
-        BREWERY breweryent0_ 
-    left outer join
-        BEER beers1_ 
-            on breweryent0_.ID=beers1_.BREWERY_ID 
-    left outer join
-        CREATOR creatorent2_ 
-            on beers1_.CREATOR_ID=creatorent2_.ID 
-    where
-        breweryent0_.ID in (
-            ?, ?
-        )
-Hibernate: 
-    select
-        ingredient0_.BEER_ID as beer_id1_1_0_,
-        ingredient0_.INGREDIENTS as ingredie2_1_0_ 
-    from
-        BEER_INGREDIENTS ingredient0_ 
-    where
-        ingredient0_.BEER_ID in (
-            ?, ?, ?, ?
-        )
-]]></system-out>
-  </testcase>
-  <testcase name="searchByName_should_return_expected_beers_with_caasae_insensitive_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.005">
-    <system-out><![CDATA[Hibernate: 
-    select
-        beerentity0_.ID as id1_0_,
-        beerentity0_.ALCOHOL_LEVEL as alcohol_2_0_,
-        beerentity0_.BREWERY_ID as brewery_4_0_,
-        beerentity0_.CREATOR_ID as creator_5_0_,
-        beerentity0_.NAME as name3_0_ 
-    from
-        BEER beerentity0_ 
-    where
-        beerentity0_.NAME=?
-Hibernate: 
-    select
-        breweryent0_.ID as id1_2_0_,
-        breweryent0_.COUNTRY as country2_2_0_,
-        breweryent0_.NAME as name3_2_0_,
-        breweryent0_.TYPE as type4_2_0_,
-        beers1_.BREWERY_ID as brewery_4_0_1_,
-        beers1_.ID as id1_0_1_,
-        beers1_.ID as id1_0_2_,
-        beers1_.ALCOHOL_LEVEL as alcohol_2_0_2_,
-        beers1_.BREWERY_ID as brewery_4_0_2_,
-        beers1_.CREATOR_ID as creator_5_0_2_,
-        beers1_.NAME as name3_0_2_,
-        creatorent2_.ID as id1_3_3_,
-        creatorent2_.FIRST_NAME as first_na2_3_3_,
-        creatorent2_.LAST_NAME as last_nam3_3_3_ 
-    from
-        BREWERY breweryent0_ 
-    left outer join
-        BEER beers1_ 
-            on breweryent0_.ID=beers1_.BREWERY_ID 
-    left outer join
-        CREATOR creatorent2_ 
-            on beers1_.CREATOR_ID=creatorent2_.ID 
-    where
-        breweryent0_.ID=?
-Hibernate: 
-    select
-        ingredient0_.BEER_ID as beer_id1_1_0_,
-        ingredient0_.INGREDIENTS as ingredie2_1_0_ 
-    from
-        BEER_INGREDIENTS ingredient0_ 
-    where
-        ingredient0_.BEER_ID in (
-            ?, ?, ?
-        )
-]]></system-out>
-  </testcase>
-  <testcase name="searchByCreatorName_should_return_expected_beers_with_first_name_in_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.008">
-    <system-out><![CDATA[Hibernate: 
-    select
-        beerentity0_.ID as id1_0_,
-        beerentity0_.ALCOHOL_LEVEL as alcohol_2_0_,
-        beerentity0_.BREWERY_ID as brewery_4_0_,
-        beerentity0_.CREATOR_ID as creator_5_0_,
-        beerentity0_.NAME as name3_0_ 
-    from
-        BEER beerentity0_ cross 
-    join
-        CREATOR creatorent1_ 
-    where
-        beerentity0_.CREATOR_ID=creatorent1_.ID 
-        and creatorent1_.FIRST_NAME=?
-Hibernate: 
-    select
-        breweryent0_.ID as id1_2_0_,
-        breweryent0_.COUNTRY as country2_2_0_,
-        breweryent0_.NAME as name3_2_0_,
-        breweryent0_.TYPE as type4_2_0_,
-        beers1_.BREWERY_ID as brewery_4_0_1_,
-        beers1_.ID as id1_0_1_,
-        beers1_.ID as id1_0_2_,
-        beers1_.ALCOHOL_LEVEL as alcohol_2_0_2_,
-        beers1_.BREWERY_ID as brewery_4_0_2_,
-        beers1_.CREATOR_ID as creator_5_0_2_,
-        beers1_.NAME as name3_0_2_,
-        creatorent2_.ID as id1_3_3_,
-        creatorent2_.FIRST_NAME as first_na2_3_3_,
-        creatorent2_.LAST_NAME as last_nam3_3_3_ 
-    from
-        BREWERY breweryent0_ 
-    left outer join
-        BEER beers1_ 
-            on breweryent0_.ID=beers1_.BREWERY_ID 
-    left outer join
-        CREATOR creatorent2_ 
-            on beers1_.CREATOR_ID=creatorent2_.ID 
-    where
-        breweryent0_.ID in (
-            ?, ?
-        )
-Hibernate: 
-    select
-        ingredient0_.BEER_ID as beer_id1_1_0_,
-        ingredient0_.INGREDIENTS as ingredie2_1_0_ 
-    from
-        BEER_INGREDIENTS ingredient0_ 
-    where
-        ingredient0_.BEER_ID in (
-            ?, ?, ?, ?
-        )
-]]></system-out>
-  </testcase>
-  <testcase name="searchByCreatorName_should_return_expected_beers_with_last_name_in_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.005">
-    <system-out><![CDATA[Hibernate: 
-    select
-        beerentity0_.ID as id1_0_,
-        beerentity0_.ALCOHOL_LEVEL as alcohol_2_0_,
-        beerentity0_.BREWERY_ID as brewery_4_0_,
-        beerentity0_.CREATOR_ID as creator_5_0_,
-        beerentity0_.NAME as name3_0_ 
-    from
-        BEER beerentity0_ cross 
-    join
-        CREATOR creatorent1_ 
-    where
-        beerentity0_.CREATOR_ID=creatorent1_.ID 
-        and creatorent1_.FIRST_NAME=?
-Hibernate: 
-    select
-        breweryent0_.ID as id1_2_0_,
-        breweryent0_.COUNTRY as country2_2_0_,
-        breweryent0_.NAME as name3_2_0_,
-        breweryent0_.TYPE as type4_2_0_,
-        beers1_.BREWERY_ID as brewery_4_0_1_,
-        beers1_.ID as id1_0_1_,
-        beers1_.ID as id1_0_2_,
-        beers1_.ALCOHOL_LEVEL as alcohol_2_0_2_,
-        beers1_.BREWERY_ID as brewery_4_0_2_,
-        beers1_.CREATOR_ID as creator_5_0_2_,
-        beers1_.NAME as name3_0_2_,
-        creatorent2_.ID as id1_3_3_,
-        creatorent2_.FIRST_NAME as first_na2_3_3_,
-        creatorent2_.LAST_NAME as last_nam3_3_3_ 
-    from
-        BREWERY breweryent0_ 
-    left outer join
-        BEER beers1_ 
-            on breweryent0_.ID=beers1_.BREWERY_ID 
-    left outer join
-        CREATOR creatorent2_ 
-            on beers1_.CREATOR_ID=creatorent2_.ID 
-    where
-        breweryent0_.ID in (
-            ?, ?
-        )
-Hibernate: 
-    select
-        ingredient0_.BEER_ID as beer_id1_1_0_,
-        ingredient0_.INGREDIENTS as ingredie2_1_0_ 
-    from
-        BEER_INGREDIENTS ingredient0_ 
-    where
-        ingredient0_.BEER_ID in (
-            ?, ?, ?, ?
-        )
-]]></system-out>
-  </testcase>
-  <testcase name="searchByCreatorFirstNameAndLastName_should_return_no_beers_with_different_case_first_name" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.003">
-    <system-out><![CDATA[Hibernate: 
-    select
-        beerentity0_.ID as id1_0_,
-        beerentity0_.ALCOHOL_LEVEL as alcohol_2_0_,
-        beerentity0_.BREWERY_ID as brewery_4_0_,
-        beerentity0_.CREATOR_ID as creator_5_0_,
-        beerentity0_.NAME as name3_0_ 
-    from
-        BEER beerentity0_ cross 
-    join
-        CREATOR creatorent1_ 
-    where
-        beerentity0_.CREATOR_ID=creatorent1_.ID 
-        and creatorent1_.FIRST_NAME=? 
-        and creatorent1_.LAST_NAME=?
-]]></system-out>
-  </testcase>
+  <testcase name="searchByCreatorFirstNameAndLastName_should_return_expected_beers_with_first_and_last_name" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.017"/>
+  <testcase name="searchByName_should_return_expected_beers_with_caasae_insensitive_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.005"/>
+  <testcase name="searchByCreatorName_should_return_expected_beers_with_first_name_in_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.007"/>
+  <testcase name="searchByCreatorName_should_return_expected_beers_with_last_name_in_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.005"/>
+  <testcase name="searchByCreatorFirstNameAndLastName_should_return_no_beers_with_different_case_first_name" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.002"/>
 </testsuite>

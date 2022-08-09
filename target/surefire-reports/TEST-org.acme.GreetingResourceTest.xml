@@ -15,7 +15,7 @@
     <property name="user.country" value="FR"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809205114352_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T20-51-14_185-jvmRun1 surefire-20220809205114352_1tmp surefire_0-20220809205114352_2tmp"/>
+    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809212547063_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T21-25-46_898-jvmRun1 surefire-20220809212547063_1tmp surefire_0-20220809212547063_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.8.4/libexec"/>
     <property name="jdk.debug" value="release"/>
@@ -33,7 +33,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809205114352_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809212547063_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.2+8"/>
@@ -63,10 +63,10 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="17.0.2+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="e1:22:cd:80:39:9b:73:66"/>
+    <property name="io.netty.machineId" value="6e:57:13:a4:d0:79:aa:cf"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceTest" time="0.012"/>
+  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceTest" time="0.013"/>
 </testsuite>

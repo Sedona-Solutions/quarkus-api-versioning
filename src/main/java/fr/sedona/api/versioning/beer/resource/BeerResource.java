@@ -11,7 +11,6 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -125,7 +124,6 @@ public class BeerResource {
 
     @DELETE
     @Path("{id}")
-    @Transactional
     @Operation(summary = "Delete beer")
     @APIResponses(value = {
             @APIResponse(
