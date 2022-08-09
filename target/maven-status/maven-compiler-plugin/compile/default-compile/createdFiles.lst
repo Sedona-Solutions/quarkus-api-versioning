@@ -4,6 +4,7 @@ fr/sedona/api/versioning/beer/model/mapper/BeerMapper.class
 fr/sedona/api/versioning/beer/model/dto/CreatorDTO.class
 fr/sedona/api/versioning/beer/model/CreatorEntity.class
 fr/sedona/api/versioning/beer/service/impl/BreweryServiceImpl.class
+fr/sedona/api/versioning/core/filter/ApiVersionInterceptor.class
 fr/sedona/api/versioning/beer/repository/ExternalUserRepository.class
 fr/sedona/api/versioning/beer/service/BreweryService.class
 fr/sedona/api/versioning/core/strategy/FKNamingStrategy.class
@@ -15,6 +16,7 @@ fr/sedona/api/versioning/beer/model/BreweryType.class
 fr/sedona/api/versioning/beer/model/dto/BeerDTO.class
 fr/sedona/api/versioning/beer/resource/BeerResource.class
 fr/sedona/api/versioning/beer/repository/BeerRepository.class
+fr/sedona/api/versioning/core/constant/ApiVersionEnum.class
 fr/sedona/api/versioning/core/strategy/CustomPhysicalNamingStrategy.class
 fr/sedona/api/versioning/beer/model/mapper/BeerMapperImpl.class
 fr/sedona/api/versioning/core/mapper/QuarkusMapperConfig.class

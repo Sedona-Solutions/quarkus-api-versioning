@@ -21,7 +21,7 @@ import java.net.URI;
 /**
  * Resource for brewerys
  */
-@Path("/breweries")
+@Path("/v1/breweries")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Breweries", description = "Manage breweries")
@@ -74,7 +74,7 @@ public class BreweryResource {
     })
     public Response createBrewery(@RequestBody BreweryDTO breweryDTO) {
         var breweryDto = breweryService.createBrewery(breweryDTO);
-        return Response.created(URI.create("/brewerys/" + breweryDto.getId())).build();
+        return Response.created(URI.create("/breweries/" + breweryDto.getId())).build();
     }
 
     @PATCH

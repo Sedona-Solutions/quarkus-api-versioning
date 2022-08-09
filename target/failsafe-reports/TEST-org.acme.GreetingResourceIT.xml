@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report-3.0.xsd" version="3.0" name="org.acme.GreetingResourceIT" time="3.998" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-failsafe-plugin/xsd/failsafe-test-report-3.0.xsd" version="3.0" name="org.acme.GreetingResourceIT" time="3.765" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="test.url" value="http://localhost:8081"/>
@@ -17,7 +17,7 @@
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="quarkus.http.test-port" value="8081"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809212557007_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T21-25-56_960-jvmRun1 surefire-20220809212557007_1tmp surefire_0-20220809212557007_2tmp"/>
+    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809234014599_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T23-40-14_549-jvmRun1 surefire-20220809234014599_1tmp surefire_0-20220809234014599_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.8.4/libexec"/>
@@ -34,7 +34,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809212557007_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809234014599_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.2+8"/>
@@ -64,18 +64,18 @@
     <property name="quarkus.http.port" value="8081"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceIT" time="1.115">
-    <system-out><![CDATA[2022-08-09 21:25:58,548 INFO  [org.jbo.threads] (main) JBoss Threads version 3.4.2.Final
+  <testcase name="testHelloEndpoint" classname="org.acme.GreetingResourceIT" time="0.935">
+    <system-out><![CDATA[2022-08-09 23:40:16,184 INFO  [org.jbo.threads] (main) JBoss Threads version 3.4.2.Final
 Executing "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java -Dquarkus.http.port=8081 -Dquarkus.http.ssl-port=8444 -Dtest.url=http://localhost:8081 -Dquarkus.log.file.path=/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/quarkus.log -Dquarkus.log.file.enable=true -jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/quarkus-app/quarkus-run.jar"
 __  ____  __  _____   ___  __ ____  ______ 
  --/ __ \/ / / / _ | / _ \/ //_/ / / / __/ 
  -/ /_/ / /_/ / __ |/ , _/ ,< / /_/ /\ \   
 --\___\_\____/_/ |_/_/|_/_/|_|\____/___/   
-2022-08-09 21:25:59,100 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.health.openapi.included" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
-2022-08-09 21:25:59,863 INFO  [io.qua.sma.ope.run.OpenApiRecorder] (main) Default CORS properties will be used, please use 'quarkus.http.cors' properties instead
-2022-08-09 21:26:00,352 INFO  [io.quarkus] (main) quarkus-api-versioning 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.11.2.Final) started in 1.501s. Listening on: http://0.0.0.0:8081
-2022-08-09 21:26:00,353 INFO  [io.quarkus] (main) Profile prod activated. 
-2022-08-09 21:26:00,353 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, reactive-routes, resteasy, resteasy-jackson, security, smallrye-context-propagation, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
+2022-08-09 23:40:16,713 WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.health.openapi.included" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2022-08-09 23:40:17,436 INFO  [io.qua.sma.ope.run.OpenApiRecorder] (main) Default CORS properties will be used, please use 'quarkus.http.cors' properties instead
+2022-08-09 23:40:17,908 INFO  [io.quarkus] (main) quarkus-api-versioning 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.11.2.Final) started in 1.438s. Listening on: http://0.0.0.0:8081
+2022-08-09 23:40:17,909 INFO  [io.quarkus] (main) Profile prod activated. 
+2022-08-09 23:40:17,909 INFO  [io.quarkus] (main) Installed features: [agroal, cdi, hibernate-orm, hibernate-orm-panache, jdbc-h2, narayana-jta, reactive-routes, resteasy, resteasy-jackson, security, smallrye-context-propagation, smallrye-jwt, smallrye-openapi, swagger-ui, vertx]
 ]]></system-out>
   </testcase>
 </testsuite>

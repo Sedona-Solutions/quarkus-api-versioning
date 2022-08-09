@@ -20,7 +20,7 @@ import java.net.URI;
 /**
  * Resource for beers
  */
-@Path("/beers")
+@Path("/v1/beers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Beers", description = "Manage beers")

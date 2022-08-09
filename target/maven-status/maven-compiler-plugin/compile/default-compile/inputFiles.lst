@@ -7,11 +7,13 @@
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/service/impl/BreweryServiceImpl.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/service/BreweryService.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/org/acme/GreetingResource.java
+/Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/core/constant/ApiVersionEnum.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/repository/ExternalUserRepository.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/core/strategy/CustomPhysicalNamingStrategy.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/service/impl/BeerServiceImpl.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/service/BeerService.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/core/mapper/QuarkusMapperConfig.java
+/Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/core/filter/ApiVersionInterceptor.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/core/strategy/FKNamingStrategy.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/resource/BeerResource.java
 /Users/coloneld/dev/git/sedona/quarkus-api-versioning/src/main/java/fr/sedona/api/versioning/beer/model/dto/CreatorDTO.java
