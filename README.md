@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/Sedona-Solutions/quarkus-api-versioning/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/Sedona-Solutions/quarkus-api-versioning/actions/workflows/maven.yml)
+
 # quarkus-api-versioning Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
