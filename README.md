@@ -1,4 +1,4 @@
-[![Quarkus API versioning CI](https://github.com/Sedona-Solutions/quarkus-api-versioning/actions/workflows/maven.yml/badge.svg?branch=api-uri-versioning)](https://github.com/Sedona-Solutions/quarkus-api-versioning/actions/workflows/maven.yml)
+[![Quarkus API versioning CI](https://github.com/Sedona-Solutions/quarkus-api-versioning/actions/workflows/maven.yml/badge.svg?branch=api-request-parameter-versioning)](https://github.com/Sedona-Solutions/quarkus-api-versioning/actions/workflows/maven.yml)
 # quarkus-api-versioning Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
