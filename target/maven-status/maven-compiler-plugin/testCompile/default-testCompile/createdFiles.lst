@@ -1,7 +1,0 @@
-fr/sedona/api/versioning/beer/service/impl/BeerServiceImplTest.class
-fr/sedona/api/versioning/beer/resource/BreweryResourceTest.class
-org/acme/GreetingResourceTest.class
-fr/sedona/api/versioning/beer/service/impl/BreweryServiceImplTest.class
-fr/sedona/api/versioning/beer/resource/BeerResourceTest.class
-org/acme/GreetingResourceIT.class
-fr/sedona/api/versioning/beer/model/dto/BeerMapperTest.class
