@@ -4,9 +4,9 @@ name: Quarkus API versioning CI
 
 on:
   push:
-    branches: [ api-uri-versioning ]
+    branches: [ api-media-type-versioning ]
   pull_request:
-    branches: [ api-uri-versioning ]
+    branches: [ api-media-type-versioning ]
 
 jobs:
   build:
