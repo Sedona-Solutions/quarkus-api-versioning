@@ -46,8 +46,8 @@ public class BeerServiceImpl implements BeerService {
     @Override
     @Transactional
     public List<BeerDTO> findAll() {
-        return this.beerRepository.findAll().stream().map(beerEntity ->
-                beerMapper.toDto(beerEntity)
+        return this.beerRepository.findAll().stream().map(
+                beerMapper::toDto
         ).toList();
     }
 

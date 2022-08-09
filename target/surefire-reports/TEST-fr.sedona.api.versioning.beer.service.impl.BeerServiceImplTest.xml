@@ -15,7 +15,7 @@
     <property name="user.country" value="FR"/>
     <property name="mp.openapi.extensions.smallrye.defaultProduces" value="application/json"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809204832966_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T20-48-32_804-jvmRun1 surefire-20220809204832966_1tmp surefire_0-20220809204832966_2tmp"/>
+    <property name="sun.java.command" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809205114352_3.jar /Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire 2022-08-09T20-51-14_185-jvmRun1 surefire-20220809205114352_1tmp surefire_0-20220809205114352_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="maven.home" value="/usr/local/Cellar/maven/3.8.4/libexec"/>
     <property name="jdk.debug" value="release"/>
@@ -33,7 +33,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809204832966_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/coloneld/dev/git/sedona/quarkus-api-versioning/target/surefire/surefirebooter-20220809205114352_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="17.0.2+8"/>
@@ -63,12 +63,12 @@
     <property name="vertx.disableTCCL" value="true"/>
     <property name="java.vm.version" value="17.0.2+8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
-    <property name="io.netty.machineId" value="ce:9e:6e:7b:4c:73:2d:8b"/>
+    <property name="io.netty.machineId" value="e1:22:cd:80:39:9b:73:66"/>
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
     <property name="mp.openapi.extensions.smallrye.defaultConsumes" value="application/json"/>
   </properties>
-  <testcase name="searchByCreatorFirstNameAndLastName_should_return_expected_beers_with_first_and_last_name" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.017">
+  <testcase name="searchByCreatorFirstNameAndLastName_should_return_expected_beers_with_first_and_last_name" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.015">
     <system-out><![CDATA[Hibernate: 
     select
         beerentity0_.ID as id1_0_,
@@ -174,7 +174,7 @@ Hibernate:
         )
 ]]></system-out>
   </testcase>
-  <testcase name="searchByCreatorName_should_return_expected_beers_with_first_name_in_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.007">
+  <testcase name="searchByCreatorName_should_return_expected_beers_with_first_name_in_query" classname="fr.sedona.api.versioning.beer.service.impl.BeerServiceImplTest" time="0.008">
     <system-out><![CDATA[Hibernate: 
     select
         beerentity0_.ID as id1_0_,
