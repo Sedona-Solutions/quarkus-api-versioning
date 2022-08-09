@@ -1,3 +1,4 @@
+fr/sedona/api/versioning/v2/beer/resource/BreweryResource.class
 fr/sedona/api/versioning/beer/model/BreweryEntity.class
 fr/sedona/api/versioning/beer/model/BeerEntity.class
 fr/sedona/api/versioning/beer/model/mapper/BeerMapper.class
@@ -5,8 +6,11 @@ fr/sedona/api/versioning/beer/model/dto/CreatorDTO.class
 fr/sedona/api/versioning/beer/model/CreatorEntity.class
 fr/sedona/api/versioning/beer/service/impl/BreweryServiceImpl.class
 fr/sedona/api/versioning/beer/repository/ExternalUserRepository.class
+fr/sedona/api/versioning/v1/beer/resource/BeerResource.class
 fr/sedona/api/versioning/beer/service/BreweryService.class
+fr/sedona/api/versioning/v2/beer/resource/BeerResource.class
 fr/sedona/api/versioning/core/strategy/FKNamingStrategy.class
+fr/sedona/api/versioning/v1/beer/resource/BreweryResource.class
 fr/sedona/api/versioning/beer/model/dto/BreweryDTO.class
 fr/sedona/api/versioning/beer/service/BeerService.class
 fr/sedona/api/versioning/beer/service/impl/BeerServiceImpl.class
