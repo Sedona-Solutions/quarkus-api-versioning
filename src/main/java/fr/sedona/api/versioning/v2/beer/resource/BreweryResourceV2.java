@@ -21,9 +21,9 @@ import java.net.URI;
 /**
  * Resource for brewerys
  */
-@Path("/v2/breweries")
-@Produces(MediaType.APPLICATION_JSON)
+@Path("/breweries")
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces("application/vnd.company.app-v2+json")
 @Tag(name = "Breweries V2", description = "Manage breweries")
 public class BreweryResourceV2 {
 

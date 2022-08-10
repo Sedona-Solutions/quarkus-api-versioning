@@ -2,6 +2,7 @@ package fr.sedona.api.versioning.v2.beer.resource;
 
 import fr.sedona.api.versioning.constant.ApiConstant;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.Header;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -13,7 +14,8 @@ class BeerResourceV2Test {
     @Test
     void testGet() {
         given()
-                .when().get(ApiConstant.API_URI_BEERS_V2 + "/1")
+                .header(new Header(ApiConstant.HEADER_ACCEPT, ApiConstant.API_HEADER_V2))
+                .when().get(ApiConstant.API_URI_BEERS + "/1")
                 .then()
                 .statusCode(200)
                 .body("id", is(1))
@@ -25,7 +27,8 @@ class BeerResourceV2Test {
     @Test
     void testGetAll() {
         given()
-                .when().get(ApiConstant.API_URI_BEERS_V2)
+                .header(new Header(ApiConstant.HEADER_ACCEPT, ApiConstant.API_HEADER_V2))
+                .when().get(ApiConstant.API_URI_BEERS)
                 .then()
                 .statusCode(200)
                 .body("size()", is(11));
@@ -34,7 +37,8 @@ class BeerResourceV2Test {
     @Test
     void testSearchByName() {
         given()
-                .when().get(ApiConstant.API_URI_BEERS_V2 + "/search/Elephant 1959")
+                .header(new Header(ApiConstant.HEADER_ACCEPT, ApiConstant.API_HEADER_V2))
+                .when().get(ApiConstant.API_URI_BEERS + "/search/Elephant 1959")
                 .then()
                 .statusCode(200)
                 .body("size()", is(1))
