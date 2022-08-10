@@ -24,12 +24,12 @@ import java.net.URI;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Beers V1", description = "Manage beers")
-public class BeerResource {
+public class BeerResourceV1 {
 
     private final BeerService beerService;
 
     @Inject
-    public BeerResource(BeerService beerService) {
+    public BeerResourceV1(BeerService beerService) {
         this.beerService = beerService;
     }
 

@@ -1,4 +1,4 @@
-package fr.sedona.api.versioning.v2.beer.resource;
+package fr.sedona.api.versioning.v1.beer.resource;
 
 import fr.sedona.api.versioning.beer.model.dto.BreweryDTO;
 import fr.sedona.api.versioning.beer.service.BreweryService;
@@ -21,16 +21,16 @@ import java.net.URI;
 /**
  * Resource for brewerys
  */
-@Path("/v2/breweries")
+@Path("/v1/breweries")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Tag(name = "Breweries V2", description = "Manage breweries")
-public class BreweryResource {
+@Tag(name = "Breweries V1", description = "Manage breweries")
+public class BreweryResourceV1 {
 
     private final BreweryService breweryService;
 
     @Inject
-    public BreweryResource(BreweryService breweryService) {
+    public BreweryResourceV1(BreweryService breweryService) {
         this.breweryService = breweryService;
     }
 

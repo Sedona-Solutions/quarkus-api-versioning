@@ -1,5 +1,6 @@
-package fr.sedona.api.versioning.beer.resource;
+package fr.sedona.api.versioning.v2.beer.resource;
 
+import fr.sedona.api.versioning.constant.ApiConstant;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
@@ -7,12 +8,12 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-class BeerResourceTest {
+class BeerResourceV2Test {
 
     @Test
     void testGet() {
         given()
-                .when().get("/beers/1")
+                .when().get(ApiConstant.API_URI_BEERS_V2 + "/1")
                 .then()
                 .statusCode(200)
                 .body("id", is(1))
@@ -24,7 +25,7 @@ class BeerResourceTest {
     @Test
     void testGetAll() {
         given()
-                .when().get("/beers")
+                .when().get(ApiConstant.API_URI_BEERS_V2)
                 .then()
                 .statusCode(200)
                 .body("size()", is(11));
@@ -33,7 +34,7 @@ class BeerResourceTest {
     @Test
     void testSearchByName() {
         given()
-                .when().get("/beers/search/Elephant 1959")
+                .when().get(ApiConstant.API_URI_BEERS_V2 + "/search/Elephant 1959")
                 .then()
                 .statusCode(200)
                 .body("size()", is(1))
