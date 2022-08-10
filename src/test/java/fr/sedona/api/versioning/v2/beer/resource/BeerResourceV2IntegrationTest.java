@@ -1,6 +1,8 @@
 package fr.sedona.api.versioning.v2.beer.resource;
 
 import fr.sedona.api.versioning.constant.ApiConstant;
+import fr.sedona.api.versioning.core.constant.ApiVersionEnum;
+import fr.sedona.api.versioning.core.filter.ApiVersionInterceptor;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +15,8 @@ class BeerResourceV2IntegrationTest {
     @Test
     void testGet() {
         given()
-                .when().get(ApiConstant.API_URI_BEERS_V2 + "/1")
+                .queryParam(ApiVersionInterceptor.QUERY_PARAM_API_VERSION, ApiVersionEnum.V2.getVersion())
+                .when().get(ApiConstant.API_URI_BEERS + "/1")
                 .then()
                 .statusCode(200)
                 .body("version", is("v2"))
@@ -35,7 +38,8 @@ class BeerResourceV2IntegrationTest {
     @Test
     void testGetAll() {
         given()
-                .when().get(ApiConstant.API_URI_BEERS_V2)
+                .queryParam(ApiVersionInterceptor.QUERY_PARAM_API_VERSION, ApiVersionEnum.V2.getVersion())
+                .when().get(ApiConstant.API_URI_BEERS)
                 .then()
                 .statusCode(200)
                 .body("size()", is(11));
@@ -44,7 +48,8 @@ class BeerResourceV2IntegrationTest {
     @Test
     void testSearchByName() {
         given()
-                .when().get(ApiConstant.API_URI_BEERS_V2 + "/search/Elephant 1959")
+                .queryParam(ApiVersionInterceptor.QUERY_PARAM_API_VERSION, ApiVersionEnum.V2.getVersion())
+                .when().get(ApiConstant.API_URI_BEERS + "/search/Elephant 1959")
                 .then()
                 .statusCode(200)
                 .body("size()", is(1))
