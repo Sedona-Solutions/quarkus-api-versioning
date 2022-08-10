@@ -1,17 +1,21 @@
-package fr.sedona.api.versioning.beer.resource;
+package fr.sedona.api.versioning.v2.beer.resource;
 
+import fr.sedona.api.versioning.core.constant.ApiVersionEnum;
+import fr.sedona.api.versioning.core.filter.ApiVersionInterceptor;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.Header;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-class BeerResourceTest {
+class BeerResourceV2Test {
 
     @Test
     void testGet() {
         given()
+                .header(new Header(ApiVersionInterceptor.HEADER_X_API_VERSION, ApiVersionEnum.V2.getVersion()))
                 .when().get("/beers/1")
                 .then()
                 .statusCode(200)
@@ -24,6 +28,7 @@ class BeerResourceTest {
     @Test
     void testGetAll() {
         given()
+                .header(new Header(ApiVersionInterceptor.HEADER_X_API_VERSION, ApiVersionEnum.V2.getVersion()))
                 .when().get("/beers")
                 .then()
                 .statusCode(200)
@@ -33,6 +38,7 @@ class BeerResourceTest {
     @Test
     void testSearchByName() {
         given()
+                .header(new Header(ApiVersionInterceptor.HEADER_X_API_VERSION, ApiVersionEnum.V2.getVersion()))
                 .when().get("/beers/search/Elephant 1959")
                 .then()
                 .statusCode(200)
