@@ -2,6 +2,7 @@ package fr.sedona.api.versioning.v2.beer.resource;
 
 import fr.sedona.api.versioning.constant.ApiConstant;
 import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.http.Header;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -13,8 +14,9 @@ class BreweryResourceV2IntegrationTest {
     @Test
     void search_should_return_breweries_with_input_matching_name() {
         given()
+                .header(new Header(ApiConstant.HEADER_ACCEPT, ApiConstant.API_HEADER_V2))
                 .when()
-                .get(ApiConstant.API_URI_BREWERIES_V2 + "/1")
+                .get(ApiConstant.API_URI_BREWERIES + "/1")
                 .then()
                 .statusCode(200)
                 .body("id", is(1))

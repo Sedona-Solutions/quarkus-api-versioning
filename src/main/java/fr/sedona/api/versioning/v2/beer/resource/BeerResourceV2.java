@@ -20,9 +20,9 @@ import java.net.URI;
 /**
  * Resource for beers
  */
-@Path("/v2/beers")
-@Produces(MediaType.APPLICATION_JSON)
+@Path("/beers")
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces("application/vnd.company.app-v2+json")
 @Tag(name = "Beers V2", description = "Manage beers")
 public class BeerResourceV2 {
 
