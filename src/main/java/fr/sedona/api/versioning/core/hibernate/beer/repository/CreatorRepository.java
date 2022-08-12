@@ -6,8 +6,8 @@ import io.quarkus.hibernate.orm.panache.PanacheRepository;
 import javax.enterprise.context.ApplicationScoped;
 
 /**
- * External user repository
+ * Creator repository
  */
 @ApplicationScoped
-public class ExternalUserRepository implements PanacheRepository<CreatorEntity> {
+public class CreatorRepository implements PanacheRepository<CreatorEntity> {
 }

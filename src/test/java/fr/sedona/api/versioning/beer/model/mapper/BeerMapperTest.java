@@ -28,14 +28,14 @@ class BeerMapperTest {
     void beer_toDto_should_map_all_entity_fields() {
         // given
         BreweryEntity brewery = new BreweryEntity();
-        brewery.id = 1L;
+        brewery.setId(1L);
         brewery.setName("Kronenbourg");
         brewery.setType(BreweryType.INDUSTRIAL);
         BeerEntity entity = new BeerEntity();
         entity.setName("name");
-        entity.setIngredients(List.of("Eau", "Malt", "Houblon"));
         entity.setAlcoholLevel(5.8f);
         entity.setBrewery(brewery);
+        entity.setCreatorId(1L);
 
         // when
         BeerDTO dto = mapper.toDto(entity);
@@ -43,8 +43,8 @@ class BeerMapperTest {
         // then
         assertEquals(entity.getName(), dto.getName());
         assertEquals(entity.getAlcoholLevel(), dto.getAlcoholLevel());
-        assertEquals(entity.getIngredients(), dto.getIngredients());
-        assertEquals(brewery.id, dto.getBrewery().getId());
+        assertEquals(entity.getCreatorId(), dto.getCreatorId());
+        assertEquals(brewery.getId(), dto.getBrewery().getId());
         assertEquals(brewery.getName(), dto.getBrewery().getName());
         assertEquals(brewery.getType(), dto.getBrewery().getType());
     }

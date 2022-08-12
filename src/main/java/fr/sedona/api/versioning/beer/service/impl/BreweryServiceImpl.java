@@ -3,6 +3,7 @@ package fr.sedona.api.versioning.beer.service.impl;
 import fr.sedona.api.versioning.beer.model.dto.BreweryDTO;
 import fr.sedona.api.versioning.beer.model.mapper.BeerMapper;
 import fr.sedona.api.versioning.beer.service.BreweryService;
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryEntity;
 import fr.sedona.api.versioning.core.hibernate.beer.repository.BreweryRepository;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -38,12 +39,14 @@ public class BreweryServiceImpl implements BreweryService {
     }
 
     @Override
+    @Transactional
     public void updateBrewery(BreweryDTO breweryDTO) {
-        this.findById(breweryDTO.getId());
-        beerMapper.toEntity(breweryDTO);
+        var breweryEntity = this.findEntityById(breweryDTO.getId());
+        breweryRepository.persist(beerMapper.toExistingEntity(breweryDTO, breweryEntity));
     }
 
     @Override
+    @Transactional
     public void deleteBrewery(long id) {
         this.findById(id);
         breweryRepository.deleteById(id);
@@ -56,8 +59,12 @@ public class BreweryServiceImpl implements BreweryService {
 
     @Override
     public BreweryDTO findById(long id) {
-        return beerMapper.toDto(breweryRepository.findByIdOptional(id)
-                .orElseThrow(() -> new NotFoundException(String.format(BREWERY_NOT_FOUND, id))));
+        return beerMapper.toDto(findEntityById(id));
+    }
+
+    private BreweryEntity findEntityById(long id) {
+        return breweryRepository.findByIdOptional(id)
+                .orElseThrow(() -> new NotFoundException(String.format(BREWERY_NOT_FOUND, id)));
     }
 
     @Override

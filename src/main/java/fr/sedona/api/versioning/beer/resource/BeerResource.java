@@ -88,8 +88,8 @@ public class BeerResource {
                     content = @Content(schema = @Schema(implementation = BeerDTO.class)))
     })
     public Response createBeer(@RequestBody BeerDTO beerDTO) {
-        var beerDto = beerService.createBeer(beerDTO);
-        return Response.created(URI.create("/beers/" + beerDto.getId())).build();
+        var id = beerService.createBeer(beerDTO);
+        return Response.created(URI.create("/beers/" + id)).build();
     }
 
     @PATCH

@@ -12,11 +12,10 @@ import java.util.List;
 @Setter
 public class BeerDTO {
 
-    private long id;
+    private Long id;
     private String name;
     private float alcoholLevel;
-    private List<String> ingredients;
     private BreweryDTO brewery;
-    private CreatorDTO creator;
+    private Long creatorId;
 
 }

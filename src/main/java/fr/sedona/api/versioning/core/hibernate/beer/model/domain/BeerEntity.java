@@ -1,14 +1,10 @@
 package fr.sedona.api.versioning.core.hibernate.beer.model.domain;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import java.util.List;
+import javax.persistence.*;
 
 /**
  * Beer entity
@@ -16,7 +12,11 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public class BeerEntity extends PanacheEntity {
+public class BeerEntity extends PanacheEntityBase {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String name;
 
@@ -24,12 +24,7 @@ public class BeerEntity extends PanacheEntity {
     @JoinColumn
     private BreweryEntity brewery;
 
-    @ElementCollection
-    private List<String> ingredients;
-
     private float alcoholLevel;
 
-    @ManyToOne
-    @JoinColumn
-    private CreatorEntity creator;
+    private Long creatorId;
 }
