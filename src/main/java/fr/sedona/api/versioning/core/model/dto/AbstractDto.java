@@ -1,4 +1,4 @@
-package fr.sedona.api.versioning.core.model.dto.abstractDto;
+package fr.sedona.api.versioning.core.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

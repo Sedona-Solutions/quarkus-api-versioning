@@ -1,6 +1,6 @@
 package fr.sedona.api.versioning.v1.beer.model.dto;
 
-import fr.sedona.api.versioning.core.model.dto.abstractDto.AbstractDto;
+import fr.sedona.api.versioning.core.model.dto.AbstractDto;
 import lombok.Getter;
 import lombok.Setter;
 

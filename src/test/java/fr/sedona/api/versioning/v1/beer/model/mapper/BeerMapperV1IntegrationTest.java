@@ -1,9 +1,10 @@
-package fr.sedona.api.versioning.v1.beer.model.dto;
+package fr.sedona.api.versioning.v1.beer.model.mapper;
 
 import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BeerEntity;
 import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryEntity;
 import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryType;
 import fr.sedona.api.versioning.core.hibernate.beer.model.domain.CreatorEntity;
+import fr.sedona.api.versioning.v1.beer.model.dto.BeerDtoV1;
 import fr.sedona.api.versioning.v1.beer.model.mapper.BeerMapperV1;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
