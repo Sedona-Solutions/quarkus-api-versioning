@@ -18,6 +18,7 @@ class BreweryResourceV2Test {
                 .then()
                 .statusCode(200)
                 .body("id", is(1))
+                .body("version", is("v2"))
                 .body("name", is("Kronenbourg"));
     }
 }

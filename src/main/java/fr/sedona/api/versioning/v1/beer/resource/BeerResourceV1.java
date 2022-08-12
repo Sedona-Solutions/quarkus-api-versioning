@@ -1,7 +1,7 @@
 package fr.sedona.api.versioning.v1.beer.resource;
 
-import fr.sedona.api.versioning.beer.model.dto.BeerDTO;
-import fr.sedona.api.versioning.beer.service.BeerService;
+import fr.sedona.api.versioning.v1.beer.model.dto.BeerDtoV1;
+import fr.sedona.api.versioning.v1.beer.service.BeerServiceV1;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -26,10 +26,10 @@ import java.net.URI;
 @Tag(name = "Beers V1", description = "Manage beers")
 public class BeerResourceV1 {
 
-    private final BeerService beerService;
+    private final BeerServiceV1 beerService;
 
     @Inject
-    public BeerResourceV1(BeerService beerService) {
+    public BeerResourceV1(BeerServiceV1 beerService) {
         this.beerService = beerService;
     }
 
@@ -39,7 +39,7 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Successfully retrieve beers",
-                    content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BeerDTO.class)))
+                    content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BeerDtoV1.class)))
     })
     public Response getBeers() {
         return Response.ok(
@@ -54,7 +54,7 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Successfully retrieve beer",
-                    content = @Content(schema = @Schema(implementation = BeerDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BeerDtoV1.class))),
             @APIResponse(responseCode = "404", description = "Resource beer not found")
     })
     public Response getBeer(@PathParam("id") long id) {
@@ -70,7 +70,7 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Successfully retrieve beer",
-                    content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BeerDTO.class))),
+                    content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BeerDtoV1.class))),
             @APIResponse(responseCode = "404", description = "Resource beer not found")
     })
     public Response getBeer(@PathParam("name") String name) {
@@ -85,9 +85,9 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Beer successfully created",
-                    content = @Content(schema = @Schema(implementation = BeerDTO.class)))
+                    content = @Content(schema = @Schema(implementation = BeerDtoV1.class)))
     })
-    public Response createBeer(@RequestBody BeerDTO beerDTO) {
+    public Response createBeer(@RequestBody BeerDtoV1 beerDTO) {
         var beerDto = beerService.createBeer(beerDTO);
         return Response.created(URI.create("/beers/" + beerDto.getId())).build();
     }
@@ -99,11 +99,11 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Beer name successfully updated",
-                    content = @Content(schema = @Schema(implementation = BeerDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BeerDtoV1.class))),
             @APIResponse(responseCode = "404", description = "Resource beer not found")
     })
     public Response updateBeerName(@PathParam("id") Long id, @RequestBody String name) {
-        BeerDTO beer = beerService.findById(id);
+        BeerDtoV1 beer = beerService.findById(id);
         beer.setName(name);
         beerService.updateBeer(beer);
         return Response.ok().build();
@@ -116,10 +116,10 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Beer successfully updated",
-                    content = @Content(schema = @Schema(implementation = BeerDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BeerDtoV1.class))),
             @APIResponse(responseCode = "404", description = "Resource beer not found")
     })
-    public Response updateBeer(@PathParam("id") Long id, @RequestBody BeerDTO beerDTO) {
+    public Response updateBeer(@PathParam("id") Long id, @RequestBody BeerDtoV1 beerDTO) {
         beerService.updateBeer(beerDTO);
         return Response.ok().build();
     }
@@ -131,7 +131,7 @@ public class BeerResourceV1 {
             @APIResponse(
                     responseCode = "200",
                     description = "Beer successfully deleted",
-                    content = @Content(schema = @Schema(implementation = BeerDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BeerDtoV1.class))),
             @APIResponse(responseCode = "404", description = "Resource beer not found")
     })
     public Response deleteBeer(@PathParam("id") Long id) {

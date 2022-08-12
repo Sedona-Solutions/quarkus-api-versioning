@@ -15,10 +15,15 @@ class BeerResourceV1Test {
                 .when().get(ApiConstant.API_URI_BEERS_V1 + "/1")
                 .then()
                 .statusCode(200)
+                .body("version", is("v1"))
+                .body("alcoholLevel", is(5.5F))
                 .body("id", is(1))
                 .body("name", is("1664"))
+                .body("brewery.version", is("v1"))
                 .body("brewery.id", is(1))
-                .body("brewery.name", is("Kronenbourg"));
+                .body("brewery.name", is("Kronenbourg"))
+                .body("brewery.type", is("INDUSTRIAL"))
+                .body("brewery.country", is("France"));
     }
 
     @Test
@@ -37,6 +42,7 @@ class BeerResourceV1Test {
                 .then()
                 .statusCode(200)
                 .body("size()", is(1))
+                .body("[0].version", is("v1"))
                 .body("[0].name", is("Elephant 1959"));
     }
 }
