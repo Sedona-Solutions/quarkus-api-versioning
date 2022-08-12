@@ -23,4 +23,3 @@ public interface BeerMapperV2 extends VersionMapperInterface {
 
     BeerEntity toEntity(BeerDtoV2 dto);
 }
-Footer
