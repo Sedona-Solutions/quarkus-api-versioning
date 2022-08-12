@@ -1,5 +1,6 @@
 package fr.sedona.api.versioning.v2.beer.service.impl;
 
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryEntity;
 import fr.sedona.api.versioning.core.hibernate.beer.repository.BreweryRepository;
 import fr.sedona.api.versioning.v2.beer.model.dto.BreweryDtoV2;
 import fr.sedona.api.versioning.v2.beer.model.mapper.BreweryMapperV2;
@@ -32,18 +33,21 @@ public class BreweryServiceV2Impl implements BreweryServiceV2 {
 
     @Override
     @Transactional
-    public BreweryDtoV2 createBrewery(BreweryDtoV2 breweryDTO) {
-        breweryRepository.persist(breweryMapper.toEntity(breweryDTO));
-        return breweryMapper.toDto(breweryMapper.toEntity(breweryDTO));
+    public Long createBrewery(BreweryDtoV2 breweryDTO) {
+        var breweryEntity = breweryMapper.toEntity(breweryDTO);
+        breweryRepository.persist(breweryEntity);
+        return breweryEntity.getId();
     }
 
     @Override
+    @Transactional
     public void updateBrewery(BreweryDtoV2 breweryDTO) {
-        this.findById(breweryDTO.getId());
-        breweryMapper.toEntity(breweryDTO);
+        var breweryEntity = this.findEntityById(breweryDTO.getId());
+        breweryRepository.persist(breweryMapper.toExistingEntity(breweryDTO, breweryEntity));
     }
 
     @Override
+    @Transactional
     public void deleteBrewery(long id) {
         this.findById(id);
         breweryRepository.deleteById(id);
@@ -56,8 +60,12 @@ public class BreweryServiceV2Impl implements BreweryServiceV2 {
 
     @Override
     public BreweryDtoV2 findById(long id) {
-        return breweryMapper.toDto(breweryRepository.findByIdOptional(id)
-                .orElseThrow(() -> new NotFoundException(String.format(BREWERY_NOT_FOUND, id))));
+        return breweryMapper.toDto(findEntityById(id));
+    }
+
+    private BreweryEntity findEntityById(long id) {
+        return breweryRepository.findByIdOptional(id)
+                .orElseThrow(() -> new NotFoundException(String.format(BREWERY_NOT_FOUND, id)));
     }
 
     @Override

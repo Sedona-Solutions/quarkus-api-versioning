@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface BreweryServiceV2 {
 
-    BreweryDtoV2 createBrewery(BreweryDtoV2 breweryDTO);
+    Long createBrewery(BreweryDtoV2 breweryDTO);
 
     void updateBrewery(BreweryDtoV2 breweryDTO);
 

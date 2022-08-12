@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-class BreweryResourceV1Test {
+class BreweryResourceV1IntegrationTest {
 
     @Test
     void search_should_return_breweries_with_input_matching_name() {

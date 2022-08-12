@@ -15,7 +15,7 @@ public interface BeerServiceV1 {
 
     List<BeerDtoV1> findAll();
 
-    BeerDtoV1 createBeer(BeerDtoV1 beerDTO);
+    Long createBeer(BeerDtoV1 beerDTO);
 
     void updateBeer(BeerDtoV1 beerDTO);
 

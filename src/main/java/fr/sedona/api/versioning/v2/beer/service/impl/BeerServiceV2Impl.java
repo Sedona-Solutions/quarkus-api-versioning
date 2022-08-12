@@ -1,6 +1,8 @@
 package fr.sedona.api.versioning.v2.beer.service.impl;
 
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BeerEntity;
 import fr.sedona.api.versioning.core.hibernate.beer.repository.BeerRepository;
+import fr.sedona.api.versioning.core.hibernate.beer.repository.BreweryRepository;
 import fr.sedona.api.versioning.v2.beer.model.dto.BeerDtoV2;
 import fr.sedona.api.versioning.v2.beer.model.mapper.BeerMapperV2;
 import fr.sedona.api.versioning.v2.beer.service.BeerServiceV2;
@@ -21,21 +23,29 @@ public class BeerServiceV2Impl implements BeerServiceV2 {
 
     private final BeerRepository beerRepository;
 
+    private final BreweryRepository breweryRepository;
+
     private final BeerMapperV2 beerMapper;
 
     @Inject
     public BeerServiceV2Impl(BeerRepository beerRepository,
+                             BreweryRepository breweryRepository,
                              BeerMapperV2 beerMapper) {
         this.beerRepository = beerRepository;
+        this.breweryRepository = breweryRepository;
         this.beerMapper = beerMapper;
     }
 
     @Override
     public BeerDtoV2 findById(long id) {
         return beerMapper.toDto(
-                this.beerRepository.findByIdOptional(id)
-                        .orElseThrow(() -> new NotFoundException(String.format(BEER_NOT_FOUND, id)))
+                findEntityById(id)
         );
+    }
+
+    private BeerEntity findEntityById(long id) {
+        return this.beerRepository.findByIdOptional(id)
+                .orElseThrow(() -> new NotFoundException(String.format(BEER_NOT_FOUND, id)));
     }
 
     @Override
@@ -53,16 +63,24 @@ public class BeerServiceV2Impl implements BeerServiceV2 {
 
     @Override
     @Transactional
-    public BeerDtoV2 createBeer(BeerDtoV2 beerDTO) {
-        beerRepository.persist(beerMapper.toEntity(beerDTO));
-        return beerMapper.toDto(beerMapper.toEntity(beerDTO));
+    public Long createBeer(BeerDtoV2 beerDTO) {
+        var beerEntity = beerMapper.toEntity(beerDTO);
+        var brewery = breweryRepository.findById(beerDTO.getBrewery().getId());
+        brewery.getBeers().add(beerEntity);
+        beerEntity.setBrewery(brewery);
+        beerRepository.persist(beerEntity);
+        return beerEntity.getId();
     }
 
     @Override
     @Transactional
     public void updateBeer(BeerDtoV2 beerDTO) {
-        this.findById(beerDTO.getId());
-        beerMapper.toEntity(beerDTO);
+        var beerEntity = this.findEntityById(beerDTO.getId());
+        var breweryEntity = breweryRepository.findById(beerDTO.getBrewery().getId());
+        breweryEntity.getBeers().add(beerEntity);
+        beerEntity.setBrewery(breweryEntity);
+        beerMapper.toExistingEntity(beerDTO, beerEntity);
+        beerRepository.persist(beerEntity);
     }
 
     @Override

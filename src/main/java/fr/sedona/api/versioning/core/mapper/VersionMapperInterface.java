@@ -1,6 +1,6 @@
 package fr.sedona.api.versioning.core.mapper;
 
 public interface VersionMapperInterface {
-    String versionV1 = "v1";
-    String versionV2 = "v2";
+    String VERSION_V_1 = "v1";
+    String VERSION_V_2 = "v2";
 }

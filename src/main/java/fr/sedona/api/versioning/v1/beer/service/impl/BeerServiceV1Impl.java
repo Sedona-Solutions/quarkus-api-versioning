@@ -1,6 +1,8 @@
 package fr.sedona.api.versioning.v1.beer.service.impl;
 
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BeerEntity;
 import fr.sedona.api.versioning.core.hibernate.beer.repository.BeerRepository;
+import fr.sedona.api.versioning.core.hibernate.beer.repository.BreweryRepository;
 import fr.sedona.api.versioning.v1.beer.model.dto.BeerDtoV1;
 import fr.sedona.api.versioning.v1.beer.model.mapper.BeerMapperV1;
 import fr.sedona.api.versioning.v1.beer.service.BeerServiceV1;
@@ -21,21 +23,29 @@ public class BeerServiceV1Impl implements BeerServiceV1 {
 
     private final BeerRepository beerRepository;
 
+    private final BreweryRepository breweryRepository;
+
     private final BeerMapperV1 beerMapper;
 
     @Inject
     public BeerServiceV1Impl(BeerRepository beerRepository,
+                             BreweryRepository breweryRepository,
                              BeerMapperV1 beerMapper) {
         this.beerRepository = beerRepository;
+        this.breweryRepository = breweryRepository;
         this.beerMapper = beerMapper;
     }
 
     @Override
     public BeerDtoV1 findById(long id) {
         return beerMapper.toDto(
-                this.beerRepository.findByIdOptional(id)
-                        .orElseThrow(() -> new NotFoundException(String.format(BEER_NOT_FOUND, id)))
+                findEntityById(id)
         );
+    }
+
+    private BeerEntity findEntityById(long id) {
+        return this.beerRepository.findByIdOptional(id)
+                .orElseThrow(() -> new NotFoundException(String.format(BEER_NOT_FOUND, id)));
     }
 
     @Override
@@ -53,16 +63,24 @@ public class BeerServiceV1Impl implements BeerServiceV1 {
 
     @Override
     @Transactional
-    public BeerDtoV1 createBeer(BeerDtoV1 beerDTO) {
-        beerRepository.persist(beerMapper.toEntity(beerDTO));
-        return beerMapper.toDto(beerMapper.toEntity(beerDTO));
+    public Long createBeer(BeerDtoV1 beerDTO) {
+        var beerEntity = beerMapper.toEntity(beerDTO);
+        var brewery = breweryRepository.findById(beerDTO.getBrewery().getId());
+        brewery.getBeers().add(beerEntity);
+        beerEntity.setBrewery(brewery);
+        beerRepository.persist(beerEntity);
+        return beerEntity.getId();
     }
 
     @Override
     @Transactional
     public void updateBeer(BeerDtoV1 beerDTO) {
-        this.findById(beerDTO.getId());
-        beerMapper.toEntity(beerDTO);
+        var beerEntity = this.findEntityById(beerDTO.getId());
+        var breweryEntity = breweryRepository.findById(beerDTO.getBrewery().getId());
+        breweryEntity.getBeers().add(beerEntity);
+        beerEntity.setBrewery(breweryEntity);
+        beerMapper.toExistingEntity(beerDTO, beerEntity);
+        beerRepository.persist(beerEntity);
     }
 
     @Override
@@ -75,17 +93,18 @@ public class BeerServiceV1Impl implements BeerServiceV1 {
     @Override
     @Transactional
     public List<BeerDtoV1> findByCreatorName(String creator) {
-        return beerRepository.list("creator.firstName = ?1", creator).stream().map(
-                beerMapper::toDto
-        ).toList();
+        return beerRepository.list("creator.firstName = ?1", creator)
+                .stream().map(
+                        beerMapper::toDto
+                ).toList();
     }
 
     @Override
     @Transactional
     public List<BeerDtoV1> findByCreatorFirstNameAndLastName(String firstName, String lastName) {
-        return beerRepository.list("creator.firstName = ?1 and creator.lastName = ?2", firstName, lastName)
-                .stream().map(
-                        beerMapper::toDto
+        return beerRepository.list("creator.firstName = ?1 and creator.lastName = ?2",
+                        firstName, lastName)
+                .stream().map(beerMapper::toDto
                 ).toList();
     }
 }

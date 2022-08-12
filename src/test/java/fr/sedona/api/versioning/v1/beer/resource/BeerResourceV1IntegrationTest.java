@@ -8,7 +8,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-class BeerResourceV1Test {
+class BeerResourceV1IntegrationTest {
     @Test
     void testGet() {
         given()

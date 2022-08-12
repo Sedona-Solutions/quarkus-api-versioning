@@ -15,7 +15,7 @@ import org.mapstruct.Mapping;
         uses = BeerMapperV2.class
 )
 public interface CreatorMapperV2 extends VersionMapperInterface {
-    @Mapping(target = "version", constant = versionV2)
+    @Mapping(target = "version", constant = VERSION_V_2)
     CreatorDtoV2 toDto(CreatorEntity entity);
 
     CreatorEntity toEntity(CreatorDtoV2 dto);
