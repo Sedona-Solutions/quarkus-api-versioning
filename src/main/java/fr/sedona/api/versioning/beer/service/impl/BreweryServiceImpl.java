@@ -2,8 +2,8 @@ package fr.sedona.api.versioning.beer.service.impl;
 
 import fr.sedona.api.versioning.beer.model.dto.BreweryDTO;
 import fr.sedona.api.versioning.beer.model.mapper.BeerMapper;
-import fr.sedona.api.versioning.beer.repository.BreweryRepository;
 import fr.sedona.api.versioning.beer.service.BreweryService;
+import fr.sedona.api.versioning.core.hibernate.beer.repository.BreweryRepository;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

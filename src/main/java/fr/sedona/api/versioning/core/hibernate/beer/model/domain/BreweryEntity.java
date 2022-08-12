@@ -1,4 +1,4 @@
-package fr.sedona.api.versioning.beer.model;
+package fr.sedona.api.versioning.core.hibernate.beer.model.domain;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Getter;

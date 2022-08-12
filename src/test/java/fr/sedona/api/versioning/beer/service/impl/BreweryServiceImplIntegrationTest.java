@@ -9,7 +9,7 @@ import javax.inject.Inject;
  * Test suite for {@link BreweryServiceImpl}
  */
 @QuarkusTest
-class BreweryServiceImplTest {
+class BreweryServiceImplIntegrationTest {
 
     @Inject
     BreweryService searchService;

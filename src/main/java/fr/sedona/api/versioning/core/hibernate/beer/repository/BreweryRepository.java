@@ -1,6 +1,6 @@
-package fr.sedona.api.versioning.beer.repository;
+package fr.sedona.api.versioning.core.hibernate.beer.repository;
 
-import fr.sedona.api.versioning.beer.model.BreweryEntity;
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryEntity;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
 import javax.enterprise.context.ApplicationScoped;

@@ -1,6 +1,6 @@
 package fr.sedona.api.versioning.beer.model.dto;
 
-import fr.sedona.api.versioning.beer.model.BreweryType;
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryType;
 
 /**
  * Brewery DTO

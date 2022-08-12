@@ -1,4 +1,4 @@
-package fr.sedona.api.versioning.core.strategy;
+package fr.sedona.api.versioning.core.hibernate.strategy;
 
 import org.hibernate.boot.model.naming.Identifier;
 import org.hibernate.boot.model.naming.ImplicitForeignKeyNameSource;

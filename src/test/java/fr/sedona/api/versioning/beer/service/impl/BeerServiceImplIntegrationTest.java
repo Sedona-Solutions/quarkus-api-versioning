@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Test suite for {@link BeerServiceImpl}
  */
 @QuarkusTest
-class BeerServiceImplTest {
+class BeerServiceImplIntegrationTest {
 
     @Inject
     BeerService searchService;
@@ -45,7 +45,7 @@ class BeerServiceImplTest {
         // then
         assertEquals(4, results.size());
         List<String> beers = results.stream().map(BeerDTO::getName).sorted().collect(Collectors.toList());
-        assertEquals(List.of("1664","Carlsberg","Skoll","Tigre Bock"), beers);
+        assertEquals(List.of("1664", "Carlsberg", "Skoll", "Tigre Bock"), beers);
     }
 
     @Test
@@ -59,7 +59,7 @@ class BeerServiceImplTest {
         // then
         assertEquals(4, results.size());
         List<String> beers = results.stream().map(BeerDTO::getName).sorted().collect(Collectors.toList());
-        assertEquals(List.of("1664","Carlsberg","Skoll","Tigre Bock"), beers);
+        assertEquals(List.of("1664", "Carlsberg", "Skoll", "Tigre Bock"), beers);
     }
 
     @Test
@@ -86,6 +86,6 @@ class BeerServiceImplTest {
         // then
         assertEquals(4, results.size());
         List<String> beers = results.stream().map(BeerDTO::getName).sorted().collect(Collectors.toList());
-        assertEquals(List.of("1664","Carlsberg","Skoll","Tigre Bock"), beers);
+        assertEquals(List.of("1664", "Carlsberg", "Skoll", "Tigre Bock"), beers);
     }
 }

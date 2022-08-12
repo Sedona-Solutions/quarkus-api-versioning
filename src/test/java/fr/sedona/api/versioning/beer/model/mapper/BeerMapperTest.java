@@ -1,9 +1,9 @@
-package fr.sedona.api.versioning.beer.model.dto;
+package fr.sedona.api.versioning.beer.model.mapper;
 
-import fr.sedona.api.versioning.beer.model.BeerEntity;
-import fr.sedona.api.versioning.beer.model.BreweryEntity;
-import fr.sedona.api.versioning.beer.model.BreweryType;
-import fr.sedona.api.versioning.beer.model.mapper.BeerMapper;
+import fr.sedona.api.versioning.beer.model.dto.BeerDTO;
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BeerEntity;
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryEntity;
+import fr.sedona.api.versioning.core.hibernate.beer.model.domain.BreweryType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;

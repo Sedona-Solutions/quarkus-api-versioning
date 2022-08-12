@@ -7,14 +7,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-class BreweryResourceTest {
+class BreweryResourceIntegrationTest {
 
     @Test
     void autocomplete_should_return_breweries_starting_with_input() {
         given()
-        .when()
+                .when()
                 .get("/breweries/1")
-        .then()
+                .then()
                 .statusCode(200)
                 .body("id", is(1))
                 .body("name", is("Kronenbourg"));
