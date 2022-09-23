@@ -1,7 +1,7 @@
-package fr.sedona.api.versioning.beer.resource;
+package fr.sedona.client.beer.resource;
 
-import fr.sedona.api.versioning.beer.model.dto.BreweryDTO;
-import fr.sedona.api.versioning.beer.service.BreweryService;
+import fr.sedona.client.beer.model.BreweryClientDTO;
+import fr.sedona.client.beer.service.BreweryRestClientService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -10,28 +10,28 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.net.URI;
 
 /**
- * Resource for brewerys
+ * Resource for breweries client
  */
-@Path("/breweries")
+@Path("/client/breweries")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Tag(name = "Breweries")
-public class BreweryResource {
+@Tag(name = "Breweries client")
+public class BreweryRestClientResource {
 
-    private final BreweryService breweryService;
+    private final BreweryRestClientService breweryRestClientService;
 
     @Inject
-    public BreweryResource(BreweryService breweryService) {
-        this.breweryService = breweryService;
+    public BreweryRestClientResource(@RestClient BreweryRestClientService breweryRestClientService) {
+        this.breweryRestClientService = breweryRestClientService;
     }
 
     @GET
@@ -39,12 +39,12 @@ public class BreweryResource {
     @APIResponses(value = {
             @APIResponse(
                     responseCode = "200",
-                    description = "Successfully retrieve brewerys",
-                    content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BreweryDTO.class)))
+                    description = "Successfully retrieve breweries",
+                    content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BreweryClientDTO.class)))
     })
-    public Response getBrewerys() {
+    public Response getBeers() {
         return Response.ok(
-                this.breweryService.findAll()
+                this.breweryRestClientService.getAllBreweries()
         ).build();
     }
 
@@ -55,12 +55,12 @@ public class BreweryResource {
             @APIResponse(
                     responseCode = "200",
                     description = "Successfully retrieve brewery",
-                    content = @Content(schema = @Schema(implementation = BreweryDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BreweryClientDTO.class))),
             @APIResponse(responseCode = "404", description = "Resource brewery not found")
     })
     public Response getBrewery(@PathParam("id") long id) {
         return Response.ok(
-                this.breweryService.findById(id)
+                this.breweryRestClientService.getBrewery(id)
         ).build();
     }
 
@@ -70,11 +70,10 @@ public class BreweryResource {
             @APIResponse(
                     responseCode = "200",
                     description = "Brewery successfully created",
-                    content = @Content(schema = @Schema(implementation = BreweryDTO.class)))
+                    content = @Content(schema = @Schema(implementation = BreweryClientDTO.class)))
     })
-    public Response createBrewery(@RequestBody BreweryDTO breweryDTO) {
-        var breweryDto = breweryService.createBrewery(breweryDTO);
-        return Response.created(URI.create("/brewerys/" + breweryDto.getId())).build();
+    public Response createBrewery(@RequestBody BreweryClientDTO breweryDTO) {
+        return breweryRestClientService.createBrewery(breweryDTO);
     }
 
     @PATCH
@@ -84,14 +83,11 @@ public class BreweryResource {
             @APIResponse(
                     responseCode = "200",
                     description = "Brewery name successfully updated",
-                    content = @Content(schema = @Schema(implementation = BreweryDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BreweryClientDTO.class))),
             @APIResponse(responseCode = "404", description = "Resource brewery not found")
     })
     public Response updateBreweryName(@PathParam("id") Long id, @RequestBody String name) {
-        BreweryDTO brewery = breweryService.findById(id);
-        brewery.setName(name);
-        breweryService.updateBrewery(brewery);
-        return Response.ok().build();
+        return breweryRestClientService.updateBreweryName(id, name);
     }
 
     @PUT
@@ -101,12 +97,11 @@ public class BreweryResource {
             @APIResponse(
                     responseCode = "200",
                     description = "Brewery successfully updated",
-                    content = @Content(schema = @Schema(implementation = BreweryDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BreweryClientDTO.class))),
             @APIResponse(responseCode = "404", description = "Resource brewery not found")
     })
-    public Response updateBrewery(@PathParam("id") Long id, @RequestBody BreweryDTO breweryDTO) {
-        breweryService.updateBrewery(breweryDTO);
-        return Response.ok().build();
+    public Response updateBrewery(@PathParam("id") Long id, @RequestBody BreweryClientDTO breweryDTO) {
+        return breweryRestClientService.updateBrewery(id, breweryDTO);
     }
 
     @DELETE
@@ -117,11 +112,10 @@ public class BreweryResource {
             @APIResponse(
                     responseCode = "200",
                     description = "Brewery successfully deleted",
-                    content = @Content(schema = @Schema(implementation = BreweryDTO.class))),
+                    content = @Content(schema = @Schema(implementation = BreweryClientDTO.class))),
             @APIResponse(responseCode = "404", description = "Resource brewery not found")
     })
     public Response deleteBrewery(@PathParam("id") Long id) {
-        breweryService.deleteBrewery(id);
-        return Response.noContent().build();
+        return breweryRestClientService.deleteBrewery(id);
     }
 }

@@ -1,4 +1,4 @@
-package fr.sedona.api.versioning.beer.model.dto;
+package fr.sedona.client.beer.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,12 +8,12 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BeerDTO {
+public class BeerClientDTO {
 
     private Long id;
     private String name;
     private float alcoholLevel;
-    private BreweryDTO brewery;
+    private BreweryClientDTO brewery;
     private Long creatorId;
 
 }

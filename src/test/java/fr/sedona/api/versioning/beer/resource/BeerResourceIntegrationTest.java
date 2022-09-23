@@ -12,7 +12,7 @@ class BeerResourceIntegrationTest {
     @Test
     void testGet() {
         given()
-                .when().get("/beers/1")
+                .when().get("/api/beers/1")
                 .then()
                 .statusCode(200)
                 .body("id", is(1))
@@ -24,7 +24,7 @@ class BeerResourceIntegrationTest {
     @Test
     void testGetAll() {
         given()
-                .when().get("/beers")
+                .when().get("/api/beers")
                 .then()
                 .statusCode(200)
                 .body("size()", is(11));
@@ -33,7 +33,7 @@ class BeerResourceIntegrationTest {
     @Test
     void testSearchByName() {
         given()
-                .when().get("/beers/search/Elephant 1959")
+                .when().get("/api/beers/search/Elephant 1959")
                 .then()
                 .statusCode(200)
                 .body("size()", is(1))
