@@ -1,7 +1,7 @@
-package fr.sedona.client.beer.resource;
+package fr.sedona.client.beer.v2.resource;
 
-import fr.sedona.client.beer.model.BeerClientDTO;
-import fr.sedona.client.beer.service.BeerRestClientService;
+import fr.sedona.client.beer.v2.model.BeerClientDTO;
+import fr.sedona.client.beer.v2.service.BeerRestClientService;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -112,7 +112,7 @@ public class BeerRestClientResource {
             @APIResponse(
                     responseCode = "200",
                     description = "Beer successfully updated",
-                    content = @Content(schema = @Schema(implementation = BeerClientDTO.class))),
+                    content = @Content(schema = @Schema(implementation = fr.sedona.api.versioning.beer.model.dto.BeerDTO.class))),
             @APIResponse(responseCode = "404", description = "Resource beer not found")
     })
     public Response updateBeer(@PathParam("id") Long id, @RequestBody BeerClientDTO beerClientDTO) {
