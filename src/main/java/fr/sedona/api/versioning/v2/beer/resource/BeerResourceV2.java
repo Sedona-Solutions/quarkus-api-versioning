@@ -23,7 +23,7 @@ import java.net.URI;
 @Path("/v2/beers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Tag(name = "Beers V2", description = "Manage beers")
+@Tag(name = "Beers V2")
 public class BeerResourceV2 {
 
     private final BeerServiceV2 beerService;
