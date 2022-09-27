@@ -20,10 +20,10 @@ import javax.ws.rs.core.Response;
 /**
  * Resource for beers client
  */
-@Path("/client/beers")
+@Path("/V2/client/beers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Tag(name = "Beers client")
+@Tag(name = "Beers client V2")
 public class BeerRestClientResourceV2 {
 
     private final BeerRestClientServiceV2 beerRestClientService;

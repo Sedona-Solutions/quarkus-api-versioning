@@ -24,7 +24,7 @@ import java.net.URI;
 @Path("/v1/breweries")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Tag(name = "Breweries V1", description = "Manage breweries")
+@Tag(name = "Breweries V1")
 public class BreweryResourceV1 {
 
     private final BreweryServiceV1 breweryService;
