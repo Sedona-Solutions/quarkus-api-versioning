@@ -12,7 +12,7 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Path("/breweries")
-@RegisterRestClient(configKey = "beers-api-v2")
+@RegisterRestClient(configKey = "beers-api")
 public interface BreweryRestClientServiceV2 {
 
     @GET
