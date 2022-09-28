@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response;
 /**
  * Resource for beers client
  */
-@Path("/V2/client/beers")
+@Path("/v2/client/beers")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Tag(name = "Beers client V2")
