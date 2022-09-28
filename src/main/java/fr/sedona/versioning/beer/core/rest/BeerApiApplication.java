@@ -17,9 +17,11 @@ import javax.ws.rs.core.Application;
                 @Tag(name = "Beers V1", description = "Manage beers V1"),
                 @Tag(name = "Breweries V1", description = "Manage breweries V1"),
                 @Tag(name = "Beers client V1", description = "Manage beers with rest client V1"),
+                @Tag(name = "Breweries client V1", description = "Manage breweries with rest client V1"),
                 @Tag(name = "Beers V2", description = "Manage beers V2"),
                 @Tag(name = "Breweries V2", description = "Manage breweries V2"),
                 @Tag(name = "Beers client V2", description = "Manage beers with rest client V2"),
+                @Tag(name = "Breweries client V2", description = "Manage breweries with rest client V2")
 
         },
         info = @Info(

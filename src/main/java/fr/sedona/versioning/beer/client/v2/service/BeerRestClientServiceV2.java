@@ -5,14 +5,13 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Produces("application/vnd.company.app-v2+json")
+@Consumes("application/vnd.company.app-v2+json")
 @Path("/beers")
-@RegisterRestClient(configKey = "beers-api-v2")
+@RegisterRestClient(configKey = "beers-api")
 public interface BeerRestClientServiceV2 {
 
     @GET

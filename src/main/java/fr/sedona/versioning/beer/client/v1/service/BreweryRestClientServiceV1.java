@@ -9,10 +9,10 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Produces("application/vnd.company.app-v1+json")
+@Consumes("application/vnd.company.app-v1+json")
 @Path("/breweries")
-@RegisterRestClient(configKey = "beers-api-v1")
+@RegisterRestClient(configKey = "beers-api")
 public interface BreweryRestClientServiceV1 {
 
     @GET
