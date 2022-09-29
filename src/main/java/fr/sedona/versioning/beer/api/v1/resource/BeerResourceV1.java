@@ -2,6 +2,7 @@ package fr.sedona.versioning.beer.api.v1.resource;
 
 import fr.sedona.versioning.beer.api.v1.model.dto.BeerDtoV1;
 import fr.sedona.versioning.beer.api.v1.service.BeerServiceV1;
+import fr.sedona.versioning.beer.core.constant.ApiVersionEnum;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -41,7 +42,15 @@ public class BeerResourceV1 {
                     description = "Successfully retrieve beers",
                     content = @Content(schema = @Schema(type = SchemaType.ARRAY, implementation = BeerDtoV1.class)))
     })
-    public Response getBeers() {
+    public Response getBeers(@QueryParam("version")ApiVersionEnum apiVersionEnum) {
+//        return switch (apiVersionEnum) {
+//            case V1 -> Response.ok(
+//                    "V1"
+//            ).build();
+//            case V2 -> Response.ok(
+//                    "V2"
+//            ).build();
+//        };
         return Response.ok(
                 this.beerService.findAll()
         ).build();

@@ -1,14 +1,15 @@
 package fr.sedona.versioning.beer.client.v1.model;
 
+import fr.sedona.versioning.beer.core.model.dto.AbstractDto;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Beer DTO
+ * Beer DTO client  V1
  */
 @Getter
 @Setter
-public class BeerClientDTOV1 {
+public class BeerClientDTOV1 extends AbstractDto {
 
     private Long id;
     private String name;

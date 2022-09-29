@@ -25,7 +25,7 @@ public interface BeerRestClientServiceV1 {
 
     @GET
     @Path("search/{name}")
-    List<BeerClientDTOV1> getBeerByName(@QueryParam("version") String version, @PathParam("name") String name);
+    List<BeerClientDTOV1> getBeerByName(@PathParam("name") String name, @QueryParam("version") String version);
 
     @POST
     Response createBeer(@QueryParam("version") String version, @RequestBody BeerClientDTOV1 beerClientDTO);
