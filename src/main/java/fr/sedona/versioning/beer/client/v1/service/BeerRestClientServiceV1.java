@@ -3,6 +3,7 @@ package fr.sedona.versioning.beer.client.v1.service;
 import fr.sedona.versioning.beer.client.v1.RequestApiVersion1HeaderFactory;
 import fr.sedona.versioning.beer.client.v1.model.BeerClientDTOV1;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+import org.eclipse.microprofile.rest.client.annotation.ClientHeaderParam;
 import org.eclipse.microprofile.rest.client.annotation.RegisterClientHeaders;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 

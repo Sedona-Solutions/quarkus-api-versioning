@@ -1,4 +1,4 @@
-package fr.sedona.versioning.beer.api.v1.resource;
+package fr.sedona.versioning.beer.client.v1.resource;
 
 import fr.sedona.versioning.beer.constant.ApiConstant;
 import fr.sedona.versioning.beer.core.constant.ApiVersionEnum;
@@ -11,13 +11,12 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
-class BeerResourceV1IntegrationTest {
-
+class BeerRestClientResourceV1IntegrationTest {
     @Test
     void testGet() {
         given()
                 .header(new Header(ApiVersionInterceptor.HEADER_X_API_VERSION, ApiVersionEnum.V1.getVersion()))
-                .when().get(ApiConstant.API_URI_BEERS + "/1")
+                .when().get(ApiConstant.API_URI_BEERS_CLIENT_V1 + "/1")
                 .then()
                 .statusCode(200)
                 .body("version", is("v1"))
@@ -35,7 +34,7 @@ class BeerResourceV1IntegrationTest {
     void testGetAll() {
         given()
                 .header(new Header(ApiVersionInterceptor.HEADER_X_API_VERSION, ApiVersionEnum.V1.getVersion()))
-                .when().get(ApiConstant.API_URI_BEERS)
+                .when().get(ApiConstant.API_URI_BEERS_CLIENT_V1)
                 .then()
                 .statusCode(200)
                 .body("size()", is(11));
@@ -45,7 +44,7 @@ class BeerResourceV1IntegrationTest {
     void testSearchByName() {
         given()
                 .header(new Header(ApiVersionInterceptor.HEADER_X_API_VERSION, ApiVersionEnum.V1.getVersion()))
-                .when().get(ApiConstant.API_URI_BEERS + "/search/Elephant 1959")
+                .when().get(ApiConstant.API_URI_BEERS_CLIENT_V1 + "/search/Elephant 1959")
                 .then()
                 .statusCode(200)
                 .body("size()", is(1))

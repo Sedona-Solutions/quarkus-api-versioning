@@ -1,6 +1,6 @@
 package fr.sedona.versioning.beer.api.v2.resource;
 
-import fr.sedona.versioning.beer.api.constant.ApiConstant;
+import fr.sedona.versioning.beer.constant.ApiConstant;
 import fr.sedona.versioning.beer.core.constant.ApiVersionEnum;
 import fr.sedona.versioning.beer.core.filter.ApiVersionInterceptor;
 import io.quarkus.test.junit.QuarkusTest;

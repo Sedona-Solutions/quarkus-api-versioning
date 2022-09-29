@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.List;
 
 /**
- * Beer DTO
+ * Beer DTO V2
  */
 @Getter
 @Setter

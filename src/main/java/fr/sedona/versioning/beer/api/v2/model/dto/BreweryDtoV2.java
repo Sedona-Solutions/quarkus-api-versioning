@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Brewery DTO
+ * Brewery DTO V2
  */
 @Getter
 @Setter
